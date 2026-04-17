@@ -12,4 +12,5 @@ require("plug_confs.lspconfig")
 require("plug_confs.neotree")
 require("plug_confs.toggleterm")
 require("plug_confs.conform")
+require("plug_confs.themery")
 
