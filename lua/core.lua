@@ -4,7 +4,6 @@ require("general.main_config")
 require("general.hotkeys")
 
 require("plug_confs.barbar")
-require("plug_confs.treesitter")
 require("plug_confs.lualine")
 require("plug_confs.blankline")
 require("plug_confs.autoclose")

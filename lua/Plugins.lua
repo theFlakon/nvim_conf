@@ -10,18 +10,44 @@ return {
 	  lazy = false,
 	},
 
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
-
-    { "nvim-tree/nvim-web-devicons", opts = {} },
-
-    { "lewis6991/gitsigns.nvim", opts = {} },
-
-    { "romgrk/barbar.nvim", opts = {} },
+    {
+        "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...
+    },
 
     {
-      'nvim-treesitter/nvim-treesitter',
-      lazy = false,
-      build = ':TSUpdate'
+        "nvim-tree/nvim-web-devicons", opts = {} 
+    },
+
+    {
+        "lewis6991/gitsigns.nvim", opts = {} 
+    },
+
+    {
+        "romgrk/barbar.nvim", opts = {} 
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        version = "*",
+        -- event = { "BufReadPost", "BufNewFile" },
+        lazy = false, -- Keep false to ensure loading for Neo-tree
+        main = "nvim-treesitter.configs", -- Lazy handles the require logic here
+        branch = "master", -- Explicitly force the stable branch
+        opts = {
+            ensure_installed = { 'c', 'python', 'cpp', 'hyprlang', 'asm', 'lua' },
+            auto_install = true,
+            highlight = { enable = true },
+            indent = { enable = true },
+        },
+        -- Fallback config to handle edge cases
+        config = function(_, opts)
+            -- Protective call: If treesitter fails to load, don't crash neovim
+            local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+            if not status_ok then
+                return
+            end
+            configs.setup(opts)
+        end,
     },
 
     {
@@ -37,16 +63,23 @@ return {
         opts = {},
     },
 
-    { "neovim/nvim-lspconfig" },
+    { 
+        "neovim/nvim-lspconfig" 
+    },
 
-    { "m4xshen/autoclose.nvim" },
+    { 
+        "m4xshen/autoclose.nvim" 
+    },
 
-    { "akinsho/toggleterm.nvim" },
+    {
+        "akinsho/toggleterm.nvim" 
+    },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
-        dependencies = {
+        dependencies = 
+        {
           "nvim-lua/plenary.nvim",
           "MunifTanjim/nui.nvim",
           "nvim-tree/nvim-web-devicons", -- optional, but recommended

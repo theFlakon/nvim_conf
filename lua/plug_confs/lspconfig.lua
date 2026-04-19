@@ -8,6 +8,10 @@
 vim.lsp.enable('clangd')
 vim.lsp.enable('pyright')
 
+vim.lsp.config('clangd', {
+    cmd = {'clangd', '--clang-tidy'},
+})
+
 vim.diagnostic.config({
     -- Show virtual text (inline messages at the end of the line)
     virtual_text = {
