@@ -1,16 +1,25 @@
 --vim.lsp.config('asm-lsp', {
-    --cmd = { 'asm-lsp' },
-    --filetypes = { 'asm', 'vmasm' },
-    --root_markers = { '.asm-lsp.toml', '.git' },
+--cmd = { 'asm-lsp' },
+--filetypes = { 'asm', 'vmasm' },
+--root_markers = { '.asm-lsp.toml', '.git' },
 --})
 
 --vim.lsp.enable('asm-lsp')
 vim.lsp.enable('clangd')
 vim.lsp.enable('pyright')
+vim.lsp.enable('lua_ls')
 
 vim.lsp.config('clangd', {
-    cmd = {'clangd', '--clang-tidy'},
+    cmd = { 'clangd', '--clang-tidy' }
 })
+
+vim.lsp.config['lua_ls'] = {
+    -- Command and arguments to start the server.
+    cmd = { 'lua-language-server' },
+    -- Filetypes to automatically attach to.
+    filetypes = { 'lua' },
+
+}
 
 vim.diagnostic.config({
     -- Show virtual text (inline messages at the end of the line)
@@ -44,5 +53,3 @@ vim.diagnostic.config({
         -- Other float options can be set here
     },
 })
-
-
