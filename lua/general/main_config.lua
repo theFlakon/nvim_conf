@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("onedark")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
