@@ -1,48 +1,53 @@
 return {
     {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
     },
     {
         "navarasu/onedark.nvim",
         priority = 1000, -- make sure to load this before all the other start plugins
         lazy = false
     },
-	{
-	  "zaldih/themery.nvim",
-	  lazy = false,
-	},
-
     {
-        "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...
+        "zaldih/themery.nvim",
+        lazy = false,
     },
 
     {
-        "nvim-tree/nvim-web-devicons", opts = {} 
+        "mason-org/mason.nvim",
+        opts = {}
     },
 
     {
-        "lewis6991/gitsigns.nvim", opts = {} 
+        "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ...
     },
 
     {
-        "romgrk/barbar.nvim", opts = {} 
+        "nvim-tree/nvim-web-devicons", opts = {}
+    },
+
+    {
+        "lewis6991/gitsigns.nvim", opts = {}
+    },
+
+    {
+        "romgrk/barbar.nvim", opts = {}
     },
 
     {
         "nvim-treesitter/nvim-treesitter",
         version = "*",
         -- event = { "BufReadPost", "BufNewFile" },
-        lazy = false, -- Keep false to ensure loading for Neo-tree
+        lazy = false,                     -- Keep false to ensure loading for Neo-tree
         main = "nvim-treesitter.configs", -- Lazy handles the require logic here
-        branch = "master", -- Explicitly force the stable branch
+        branch = "master",                -- Explicitly force the stable branch
         opts = {
             ensure_installed = { 'c', 'python', 'cpp', 'hyprlang', 'asm', 'lua' },
             auto_install = true,
             highlight = { enable = true },
-            indent = { enable = true },
+            indent = { enable = false },
         },
         -- Fallback config to handle edge cases
         config = function(_, opts)
@@ -68,29 +73,29 @@ return {
         opts = {},
     },
 
-    { 
-        "neovim/nvim-lspconfig" 
-    },
-
-    { 
-        "m4xshen/autoclose.nvim" 
+    {
+        "neovim/nvim-lspconfig"
     },
 
     {
-        "akinsho/toggleterm.nvim" 
+        "m4xshen/autoclose.nvim"
+    },
+
+    {
+        "akinsho/toggleterm.nvim"
     },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
-        dependencies = 
+        dependencies =
         {
-          "nvim-lua/plenary.nvim",
-          "MunifTanjim/nui.nvim",
-          "nvim-tree/nvim-web-devicons", -- optional, but recommended
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-tree/nvim-web-devicons", -- optional, but recommended
         },
-        lazy = false, -- neo-tree will lazily load itself
-      },
+        lazy = false,                      -- neo-tree will lazily load itself
+    },
 
     {
         'stevearc/conform.nvim',
@@ -100,7 +105,7 @@ return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter',
-            'nvim-mini/mini.nvim' },            
+            'nvim-mini/mini.nvim' },
         opts = {},
     },
 }
