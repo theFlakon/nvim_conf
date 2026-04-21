@@ -1,11 +1,16 @@
+local themes_list =
+{
+    "gruvbox",
+    "tokyonight",
+    "retrobox",
+    "tokyonight-night",
+    "tokyonight-moon",
+    "onedark",
+}
+
 -- Minimal config
 require("themery").setup({
-    themes = {
-        "gruvbox", 
-        "tokyonight",
-        "retrobox",
-        "tokyonight-night",
-        "tokyonight-moon",
-        "onedark"}, -- Your list of installed colorschemes.
+    themes = themes_list,
+
     livePreview = true, -- Apply theme while picking. Default to true.
 })
